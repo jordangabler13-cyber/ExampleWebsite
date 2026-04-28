@@ -3,21 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GreenScape Lawn Care</title>
+<title>EverGreen Lawn Care</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif;}
 
-body {background:#0b1220; color:white;}
+body {background:#0f172a; color:white;}
 
 header {
   position:fixed;
   width:100%;
   top:0;
-  background:rgba(0,0,0,0.7);
-  backdrop-filter: blur(10px);
+  background:rgba(0,0,0,0.8);
   padding:15px;
   text-align:center;
   z-index:1000;
@@ -27,22 +26,16 @@ header h1 {color:#22c55e;}
 
 .hero {
   height:100vh;
-  background:url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6') center/cover no-repeat;
+  background:url('https://images.unsplash.com/photo-1560743641-3914f2c45636?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
+  padding:20px;
 }
 
-.hero h2 {
-  font-size:50px;
-  animation: fadeIn 2s ease;
-}
-
-.hero p {
-  margin-top:15px;
-  font-size:20px;
-}
+.hero h2 {font-size:48px; animation:fadeIn 1.5s ease;}
+.hero p {margin-top:15px; font-size:20px;}
 
 .btn {
   margin-top:25px;
@@ -52,10 +45,7 @@ header h1 {color:#22c55e;}
   text-decoration:none;
   border-radius:8px;
   display:inline-block;
-  transition:0.3s;
 }
-
-.btn:hover {background:#16a34a;}
 
 section {padding:80px 20px; max-width:1100px; margin:auto;}
 
@@ -66,16 +56,13 @@ section {padding:80px 20px; max-width:1100px; margin:auto;}
 }
 
 .card {
-  background:#111827;
-  padding:25px;
-  border-radius:12px;
+  background:#1e293b;
+  padding:20px;
+  border-radius:10px;
   transition:0.3s;
 }
 
-.card:hover {
-  transform:translateY(-10px);
-  background:#1f2937;
-}
+.card:hover {transform:translateY(-8px);}
 
 .gallery {
   display:grid;
@@ -86,10 +73,6 @@ section {padding:80px 20px; max-width:1100px; margin:auto;}
 .gallery img {
   width:100%;
   border-radius:10px;
-}
-
-.reviews .card {
-  margin-top:15px;
 }
 
 footer {
@@ -108,89 +91,62 @@ footer {
 <body>
 
 <header>
-  <h1>GreenScape Lawn Care</h1>
+  <h1>EverGreen Lawn Care</h1>
 </header>
 
 <div class="hero">
   <div>
-    <h2>Professional Lawn Care That Stands Out</h2>
-    <p>We turn average yards into clean, healthy, eye-catching landscapes</p>
-    <a href="#" class="btn">Get a Free Quote</a>
+    <h2>Make Your Lawn Stand Out</h2>
+    <p>Professional lawn care that keeps your yard clean, healthy, and sharp</p>
+    <a href="#contact" class="btn">Get a Free Quote</a>
   </div>
 </div>
 
 <section>
   <h2>Our Services</h2>
   <div class="services">
-    <div class="card">
-      <h3>Lawn Mowing & Maintenance</h3>
-      <p>Consistent mowing, edging, and trimming to keep your yard clean and sharp every week.</p>
-    </div>
-    <div class="card">
-      <h3>Tree & Shrub Trimming</h3>
-      <p>We shape and maintain trees and bushes to improve appearance and health.</p>
-    </div>
-    <div class="card">
-      <h3>Mulch & Landscaping</h3>
-      <p>Fresh mulch and landscaping upgrades that make your property stand out instantly.</p>
-    </div>
-    <div class="card">
-      <h3>Seasonal Cleanup</h3>
-      <p>Leaf removal, debris cleanup, and yard restoration for every season.</p>
-    </div>
+    <div class="card"><h3>Lawn Mowing</h3><p>Clean, even cuts every visit with detailed edging.</p></div>
+    <div class="card"><h3>Tree Trimming</h3><p>Keep trees healthy and shaped professionally.</p></div>
+    <div class="card"><h3>Mulch Installation</h3><p>Boost curb appeal instantly with fresh mulch.</p></div>
+    <div class="card"><h3>Season Cleanup</h3><p>Leaves, debris, and full yard cleanup services.</p></div>
   </div>
 </section>
 
 <section>
   <h2>How We Work</h2>
-  <p>
-    Our process is simple and designed to give you the best results without any hassle.
-    First, we assess your lawn and understand what it needs. Then we create a plan that
-    fits your yard and your budget. Our team shows up on time, works efficiently, and
-    leaves your property looking clean, sharp, and professionally maintained.
-  </p>
-  <br>
-  <p>
-    We focus on consistency, attention to detail, and long-term lawn health—not just
-    quick fixes. That’s why our customers trust us to keep their properties looking great year-round.
-  </p>
+  <p>We start by evaluating your yard and understanding exactly what it needs. Our team then creates a plan to improve both the appearance and long-term health of your lawn. We show up on time, work efficiently, and leave your property looking better every single visit.</p>
 </section>
 
 <section>
   <h2>Our Work</h2>
   <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449">
-    <img src="https://images.unsplash.com/photo-1599685315640-58c6c0d8d9df">
-    <img src="https://images.unsplash.com/photo-1560743641-3914f2c45636">
+    <img src="https://images.unsplash.com/photo-1599685315640-58c6c0d8d9df?auto=format&fit=crop&w=800&q=80">
+    <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=800&q=80">
+    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80">
   </div>
 </section>
 
-<section class="reviews">
-  <h2>What Customers Say</h2>
-
-  <div class="card">⭐⭐⭐⭐⭐ "They completely transformed my yard. It looks amazing every week."</div>
-  <div class="card">⭐⭐⭐⭐⭐ "Very reliable and professional. Always on time and great work."</div>
-  <div class="card">⭐⭐⭐⭐⭐ "Best lawn care service I’ve used. Highly recommend."</div>
-
+<section>
+  <h2>Reviews</h2>
+  <div class="card">⭐⭐⭐⭐⭐ "They made my yard look brand new."</div>
+  <div class="card">⭐⭐⭐⭐⭐ "Reliable, fast, and great pricing."</div>
+  <div class="card">⭐⭐⭐⭐⭐ "Best lawn care service I’ve used."</div>
 </section>
 
 <section>
   <h2>Why Choose Us</h2>
-  <p>
-    We’re not just another lawn service. We care about results. Our goal is to make your property look better than
-    your neighbors’—simple as that. We show up when we say we will, we do the job right, and we make sure you’re satisfied.
-  </p>
+  <p>We focus on quality, consistency, and results. Our goal is to make your property stand out and stay looking great year-round.</p>
 </section>
 
-<section>
+<section id="contact">
   <h2>Contact Us</h2>
-  <p>📍 Serving your local area</p>
-  <p>📞 (000) 000-0000</p>
-  <p>📧 contact@greenscape.com</p>
+  <p>📍 Local Lawn Care Services</p>
+  <p>📞 (919) 000-0000</p>
+  <p>📧 info@evergreen.com</p>
 </section>
 
 <footer>
-  <p>© 2026 GreenScape Lawn Care</p>
+  <p>© 2026 EverGreen Lawn Care</p>
 </footer>
 
 </body>
