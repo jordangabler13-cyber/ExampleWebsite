@@ -1,196 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GreenScape Lawn Care - Premium Lawn Services</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GreenScape Lawn Care - Premium Lawn Services</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --primary-green: #2d6a4f;
-            --secondary-green: #40916c;
-            --accent-green: #52b788;
-            --light-green: #d8f3dc;
-            --dark-green: #1b4332;
-            --warm-gray: #f4f1ea;
-        }
+<style>
+:root{
+--primary-green:#2d6a4f;
+--secondary-green:#40916c;
+--accent-green:#52b788;
+--light-green:#d8f3dc;
+--dark-green:#1b4332;
+--warm-gray:#f4f1ea;
+}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Poppins,sans-serif;
+background:var(--warm-gray);
+color:#333;
+}
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--warm-gray);
-            color: #333;
-            line-height: 1.6;
-        }
+.container{max-width:1200px;margin:auto;padding:0 20px}
 
-        .container { max-width: 1200px; margin: auto; padding: 0 20px; }
+.btn{
+padding:12px 28px;
+border-radius:50px;
+background:linear-gradient(135deg,var(--primary-green),var(--secondary-green));
+color:#fff;
+border:none;
+cursor:pointer;
+transition:.3s;
+}
 
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
-            color: white;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-            border: none;
-        }
+.btn:hover{transform:translateY(-3px)}
 
-        .btn:hover { transform: translateY(-2px); }
+.btn-outline{
+background:transparent;
+border:2px solid var(--primary-green);
+color:var(--primary-green);
+}
 
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--primary-green);
-            color: var(--primary-green);
-        }
+.section-title{font-size:2.3rem;color:var(--dark-green);margin-bottom:10px}
+.section-subtitle{color:#666;margin-bottom:30px}
 
-        .section-title {
-            font-size: 2.5rem;
-            color: var(--dark-green);
-            margin-bottom: 1rem;
-            position: relative;
-        }
+.card{
+background:#fff;
+padding:20px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.1);
+transition:.3s;
+}
 
-        .section-title::after {
-            content: '';
-            width: 80px;
-            height: 4px;
-            background: var(--accent-green);
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-        }
+.card:hover{transform:translateY(-10px)}
 
-        .card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
+.service-icon{
+width:70px;height:70px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(135deg,var(--primary-green),var(--accent-green));
+color:#fff;
+margin-bottom:15px;
+font-size:24px;
+}
 
-        .gradient-text {
-            background: linear-gradient(90deg, var(--primary-green), var(--accent-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+.review-card{
+background:#fff;
+padding:20px;
+border-radius:20px;
+margin-bottom:20px;
+}
 
-        .form-control {
-            width: 100%;
-            padding: 12px;
-            border-radius: 10px;
-            border: 2px solid #ddd;
-        }
+.review-stars{color:gold;margin:10px 0}
 
-        .form-control:focus {
-            border-color: var(--primary-green);
-            outline: none;
-        }
-    </style>
+.lawn-img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:20px;
+}
+
+footer{
+background:var(--primary-green);
+color:#fff;
+padding:40px 0;
+margin-top:50px;
+}
+</style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<section class="container py-20">
-    <h1 class="section-title">GreenScape Lawn Care</h1>
-    <p>Premium lawn services built for perfect outdoor spaces.</p>
+<!-- HEADER -->
+<header class="bg-white shadow-md sticky top-0 z-50">
+<div class="container flex justify-between items-center py-4">
+<h1 class="text-2xl font-bold text-green-800">GreenScape</h1>
 
-    <div class="mt-6">
-        <button class="btn">Get Quote</button>
-        <button class="btn btn-outline">Book Service</button>
-    </div>
+<nav class="space-x-6 hidden md:block">
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#calculator">Calculator</a>
+<a href="#gallery">Gallery</a>
+<a href="#reviews">Reviews</a>
+<a href="#contact">Contact</a>
+</nav>
+</div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="py-20 container">
+<div class="grid md:grid-cols-2 gap-10 items-center">
+
+<div>
+<h2 class="section-title">A Lawn You’ll Actually Be Proud Of</h2>
+<p class="section-subtitle">
+We design, cut, clean, and maintain lawns with professional-grade equipment and real attention to detail.
+</p>
+
+<button class="btn" onclick="scrollToCalc()">Get Quote</button>
+<button class="btn btn-outline" onclick="scrollToContact()">Book Now</button>
+</div>
+
+<img class="card" src="https://images.unsplash.com/photo-1598902108854-10e335adac99" />
+</div>
 </section>
 
 <!-- SERVICES -->
-<section class="container py-20">
-    <h2 class="section-title">Services</h2>
+<section id="services" class="container py-20">
+<h2 class="section-title text-center">Services</h2>
+<p class="section-subtitle text-center">Everything your lawn needs, all in one place</p>
 
-    <div class="grid md:grid-cols-3 gap-6 mt-10">
-        <div class="card">
-            <h3>Lawn Mowing</h3>
-            <p>$35 starting</p>
-        </div>
+<div class="grid md:grid-cols-3 gap-6">
 
-        <div class="card">
-            <h3>Fertilization</h3>
-            <p>$50 per application</p>
-        </div>
+<div class="card">
+<div class="service-icon"><i class="fas fa-cut"></i></div>
+<h3>Mowing</h3>
+<p>Precision cutting, edging, and cleanup for a clean professional look.</p>
+</div>
 
-        <div class="card">
-            <h3>Landscaping</h3>
-            <p>$75/hour</p>
-        </div>
-    </div>
+<div class="card">
+<div class="service-icon"><i class="fas fa-seedling"></i></div>
+<h3>Fertilizing</h3>
+<p>Seasonal nutrient treatments for deep green, healthy grass.</p>
+</div>
+
+<div class="card">
+<div class="service-icon"><i class="fas fa-tree"></i></div>
+<h3>Landscaping</h3>
+<p>Full outdoor redesigns including plants, beds, and hardscape.</p>
+</div>
+
+</div>
 </section>
 
 <!-- CALCULATOR -->
-<section class="container py-20">
-    <h2 class="section-title">Calculator</h2>
+<section id="calculator" class="container py-20">
+<h2 class="section-title text-center">Instant Quote Calculator</h2>
 
-    <div class="card mt-6">
-        <form id="calculatorForm">
-            <input id="lawnSize" type="number" class="form-control mb-3" placeholder="Lawn Size">
+<div class="card">
 
-            <select id="serviceType" class="form-control mb-3">
-                <option value="mowing">Mowing</option>
-                <option value="fertilization">Fertilization</option>
-                <option value="landscaping">Landscaping</option>
-            </select>
+<input id="size" type="number" placeholder="Lawn size (sq ft)" class="w-full p-3 border rounded mb-4">
 
-            <select id="frequency" class="form-control mb-3">
-                <option value="one-time">One-time</option>
-                <option value="weekly">Weekly</option>
-                <option value="monthly">Monthly</option>
-            </select>
+<select id="service" class="w-full p-3 border rounded mb-4">
+<option value="0.015">Mowing</option>
+<option value="0.02">Fertilizing</option>
+<option value="0.03">Landscaping</option>
+</select>
 
-            <button class="btn w-full">Calculate</button>
-        </form>
+<select id="freq" class="w-full p-3 border rounded mb-4">
+<option value="1">One-time</option>
+<option value="0.9">Weekly (discount)</option>
+<option value="0.95">Bi-weekly</option>
+</select>
 
-        <div id="result" class="mt-4"></div>
-    </div>
+<button class="btn w-full" onclick="calc()">Calculate</button>
+
+<h3 id="result" class="text-center text-2xl mt-4"></h3>
+
+</div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="container py-20">
+<h2 class="section-title text-center">Real Lawn Results</h2>
+
+<div class="grid md:grid-cols-3 gap-6">
+
+<img class="lawn-img" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+<img class="lawn-img" src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6">
+<img class="lawn-img" src="https://images.unsplash.com/photo-1599623560574-39f4a0c8c3a6">
+
+</div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="container py-20">
+<h2 class="section-title text-center">Customer Reviews</h2>
+
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<p>"They completely fixed my yard. Never seen grass this clean."</p>
+</div>
+
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<p>"Fast, reliable, and actually showed up on time. Rare these days."</p>
+</div>
+
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<p>"My backyard looks like a golf course now."</p>
+</div>
+
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<p>"Pricing was fair and results were way better than expected."</p>
+</div>
+
 </section>
 
 <!-- CONTACT -->
-<section class="container py-20">
-    <h2 class="section-title">Contact</h2>
+<section id="contact" class="container py-20">
+<h2 class="section-title text-center">Contact Us</h2>
 
-    <form class="card mt-6"
-          action="https://formspree.io/f/mwvagnez"
-          method="POST"
-          id="contactForm">
+<form action="https://formspree.io/f/mwvagnez" method="POST" class="card">
 
-        <input name="name" class="form-control mb-3" placeholder="Name" required>
-        <input name="email" type="email" class="form-control mb-3" placeholder="Email" required>
-        <textarea name="message" class="form-control mb-3" placeholder="Message" required></textarea>
+<input name="name" placeholder="Name" class="w-full p-3 border mb-3 rounded">
+<input name="email" placeholder="Email" class="w-full p-3 border mb-3 rounded">
+<textarea name="message" placeholder="Message" class="w-full p-3 border mb-3 rounded"></textarea>
 
-        <button class="btn w-full">Send</button>
-    </form>
+<button class="btn w-full">Send</button>
+</form>
+
 </section>
 
+<footer class="text-center">
+<p>© 2026 GreenScape Lawn Care</p>
+</footer>
+
 <script>
-document.getElementById("calculatorForm").addEventListener("submit", function(e){
-    e.preventDefault();
+function calc(){
+let size=document.getElementById("size").value;
+let rate=document.getElementById("service").value;
+let freq=document.getElementById("freq").value;
 
-    let size = document.getElementById("lawnSize").value || 0;
-    let type = document.getElementById("serviceType").value;
+let price=size*rate*freq;
+document.getElementById("result").innerText="$"+price.toFixed(2);
+}
 
-    let price = 0;
+function scrollToCalc(){
+document.getElementById("calculator").scrollIntoView({behavior:"smooth"});
+}
 
-    if(type === "mowing") price = size * 0.015;
-    if(type === "fertilization") price = size * 0.02;
-    if(type === "landscaping") price = size * 0.03;
-
-    document.getElementById("result").innerHTML =
-        "<h3>Estimated Price: $" + price.toFixed(2) + "</h3>";
-});
+function scrollToContact(){
+document.getElementById("contact").scrollIntoView({behavior:"smooth"});
+}
 </script>
 
 </body>
