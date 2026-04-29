@@ -1,174 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GreenScape Lawn Care - Premium Lawn Services</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenScape Lawn Care - Premium Lawn Services</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #2d6a4f;
+            --secondary-green: #40916c;
+            --accent-green: #52b788;
+            --light-green: #d8f3dc;
+            --dark-green: #1b4332;
+            --warm-gray: #f4f1ea;
+        }
 
-<style>
-:root {
---primary-green:#2d6a4f;
---secondary-green:#40916c;
---accent-green:#52b788;
---light-green:#d8f3dc;
---dark-green:#1b4332;
---warm-gray:#f4f1ea;
-}
-body{font-family:'Poppins',sans-serif;background:var(--warm-gray);margin:0}
-.container{max-width:1200px;margin:auto;padding:0 20px}
-.btn{padding:12px 30px;background:linear-gradient(135deg,var(--primary-green),var(--secondary-green));color:#fff;border-radius:50px}
-.card{background:#fff;border-radius:20px;padding:2rem;box-shadow:0 10px 30px rgba(0,0,0,.1)}
-.fade-in{opacity:0;transform:translateY(30px)}
-</style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--warm-gray);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container { max-width: 1200px; margin: auto; padding: 0 20px; }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            border: none;
+        }
+
+        .btn:hover { transform: translateY(-2px); }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-green);
+            color: var(--primary-green);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--dark-green);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--accent-green);
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary-green), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-green);
+            outline: none;
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- LOADER -->
-<div id="loader" style="position:fixed;inset:0;background:#f4f1ea;display:flex;align-items:center;justify-content:center;z-index:9999">
-<h2>Loading GreenScape...</h2>
-</div>
-
 <!-- HERO -->
-<section id="home" class="py-20 text-center">
-<h1 class="text-4xl font-bold">GreenScape Lawn Care</h1>
-<p>Premium lawn care services</p>
-<button onclick="scrollToCalc()" class="btn mt-4">Get Instant Quote</button>
+<section class="container py-20">
+    <h1 class="section-title">GreenScape Lawn Care</h1>
+    <p>Premium lawn services built for perfect outdoor spaces.</p>
+
+    <div class="mt-6">
+        <button class="btn">Get Quote</button>
+        <button class="btn btn-outline">Book Service</button>
+    </div>
 </section>
 
 <!-- SERVICES -->
-<section class="py-20 bg-green-100 text-center">
-<h2 class="text-3xl font-bold mb-6">Our Services</h2>
-<div class="grid md:grid-cols-3 gap-6 container">
-<div class="card">Lawn Mowing - $35</div>
-<div class="card">Fertilization - $50</div>
-<div class="card">Landscaping - $75/hr</div>
-</div>
+<section class="container py-20">
+    <h2 class="section-title">Services</h2>
+
+    <div class="grid md:grid-cols-3 gap-6 mt-10">
+        <div class="card">
+            <h3>Lawn Mowing</h3>
+            <p>$35 starting</p>
+        </div>
+
+        <div class="card">
+            <h3>Fertilization</h3>
+            <p>$50 per application</p>
+        </div>
+
+        <div class="card">
+            <h3>Landscaping</h3>
+            <p>$75/hour</p>
+        </div>
+    </div>
 </section>
 
 <!-- CALCULATOR -->
-<section id="calculator" class="py-20">
-<div class="container grid md:grid-cols-2 gap-10">
-<div class="card">
-<h3 class="text-xl mb-4">Estimate Your Cost</h3>
+<section class="container py-20">
+    <h2 class="section-title">Calculator</h2>
 
-<form id="calculatorForm">
-<input type="number" id="lawnSize" placeholder="Lawn Size" class="border p-2 w-full mb-3">
+    <div class="card mt-6">
+        <form id="calculatorForm">
+            <input id="lawnSize" type="number" class="form-control mb-3" placeholder="Lawn Size">
 
-<select id="serviceType" class="border p-2 w-full mb-3">
-<option value="mowing">Mowing</option>
-<option value="fertilization">Fertilization</option>
-<option value="landscaping">Landscaping</option>
-<option value="aeration">Aeration</option>
-<option value="leaf-removal">Leaf Removal</option>
-</select>
+            <select id="serviceType" class="form-control mb-3">
+                <option value="mowing">Mowing</option>
+                <option value="fertilization">Fertilization</option>
+                <option value="landscaping">Landscaping</option>
+            </select>
 
-<select id="frequency" class="border p-2 w-full mb-3">
-<option value="one-time">One-time</option>
-<option value="weekly">Weekly</option>
-<option value="bi-weekly">Bi-weekly</option>
-<option value="monthly">Monthly</option>
-</select>
+            <select id="frequency" class="form-control mb-3">
+                <option value="one-time">One-time</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+            </select>
 
-<button class="btn w-full">Calculate</button>
-</form>
-</div>
+            <button class="btn w-full">Calculate</button>
+        </form>
 
-<div id="calculatorResult" class="card hidden text-center">
-<h4>Estimated Price</h4>
-<div id="price" class="text-3xl font-bold"></div>
-</div>
-</div>
+        <div id="result" class="mt-4"></div>
+    </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="py-20 bg-green-100">
-<div class="container grid md:grid-cols-2 gap-10">
+<section class="container py-20">
+    <h2 class="section-title">Contact</h2>
 
-<div class="card">
-<h3 class="text-xl mb-4">Send Message</h3>
+    <form class="card mt-6"
+          action="https://formspree.io/f/mwvagnez"
+          method="POST"
+          id="contactForm">
 
-<form id="contactForm" action="https://formspree.io/f/mwvagnez" method="POST">
-<input name="name" required placeholder="Name" class="border p-2 w-full mb-3">
-<input type="email" name="email" required placeholder="Email" class="border p-2 w-full mb-3">
-<textarea name="message" required placeholder="Message" class="border p-2 w-full mb-3"></textarea>
+        <input name="name" class="form-control mb-3" placeholder="Name" required>
+        <input name="email" type="email" class="form-control mb-3" placeholder="Email" required>
+        <textarea name="message" class="form-control mb-3" placeholder="Message" required></textarea>
 
-<input type="hidden" name="_subject" value="New Lead">
-<input type="hidden" name="_captcha" value="false">
-
-<button class="btn w-full">Send</button>
-</form>
-
-</div>
-
-<div class="card">
-<h3>Contact Info</h3>
-<p>(555) 123-4567</p>
-<p>info@greenscape.com</p>
-</div>
-
-</div>
+        <button class="btn w-full">Send</button>
+    </form>
 </section>
 
-<!-- FOOTER -->
-<footer class="text-center p-6 bg-green-800 text-white">
-© GreenScape Lawn Care
-</footer>
-
 <script>
+document.getElementById("calculatorForm").addEventListener("submit", function(e){
+    e.preventDefault();
 
-// LOADER
-window.onload=()=>setTimeout(()=>loader.style.display="none",1200)
+    let size = document.getElementById("lawnSize").value || 0;
+    let type = document.getElementById("serviceType").value;
 
-// SCROLL
-function scrollToCalc(){
-document.getElementById("calculator").scrollIntoView({behavior:"smooth"})
-}
+    let price = 0;
 
-// CALCULATOR FIXED
-document.getElementById("calculatorForm").addEventListener("submit",function(e){
-e.preventDefault()
+    if(type === "mowing") price = size * 0.015;
+    if(type === "fertilization") price = size * 0.02;
+    if(type === "landscaping") price = size * 0.03;
 
-let size=parseFloat(lawnSize.value)
-if(!size||isNaN(size)){alert("Enter valid size");return}
-
-let service=serviceType.value
-let freq=frequency.value
-
-let base=0
-if(service==="mowing") base=size*0.015
-if(service==="fertilization") base=size*0.02
-if(service==="landscaping") base=size*0.03
-if(service==="aeration") base=size*0.01
-if(service==="leaf-removal") base=size*0.008
-
-let mult=1
-if(freq==="weekly") mult=0.9
-if(freq==="bi-weekly") mult=0.95
-if(freq==="monthly") mult=1.05
-
-let total=base*mult
-
-price.innerText="$"+total.toFixed(2)
-calculatorResult.classList.remove("hidden")
-})
-
-// FORM SUCCESS (does not block Formspree)
-contactForm.addEventListener("submit",()=>{
-setTimeout(()=>alert("Message sent!"),500)
-})
-
-// GSAP
-gsap.registerPlugin(ScrollTrigger)
-gsap.from("h1",{y:-50,opacity:0,duration:1})
-
+    document.getElementById("result").innerHTML =
+        "<h3>Estimated Price: $" + price.toFixed(2) + "</h3>";
+});
 </script>
 
 </body>
