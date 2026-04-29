@@ -3,107 +3,173 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GreenScape Lawn Care</title>
+<title>GreenScape Lawn Care - Premium Lawn Services</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:#0f172a;color:white;}
-header{position:fixed;width:100%;top:0;background:#020617;padding:15px;text-align:center;}
-header h1{color:#22c55e;}
-
-.hero{
-height:100vh;
-background:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-display:flex;align-items:center;justify-content:center;text-align:center;
+:root {
+--primary-green:#2d6a4f;
+--secondary-green:#40916c;
+--accent-green:#52b788;
+--light-green:#d8f3dc;
+--dark-green:#1b4332;
+--warm-gray:#f4f1ea;
 }
-.hero h2{font-size:50px;}
-.btn{
-padding:14px 28px;background:#22c55e;color:white;border:none;border-radius:8px;
-margin-top:20px;display:inline-block;text-decoration:none;
-}
-
-section{padding:80px 20px;max-width:1100px;margin:auto;}
-
-.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
-.card{background:#1e293b;padding:20px;border-radius:10px;}
-
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;}
-.gallery img{width:100%;border-radius:10px;}
-
-form input, form textarea{
-width:100%;padding:12px;margin:8px 0;border:none;border-radius:6px;
-}
-
-button{
-padding:12px 25px;background:#22c55e;color:white;border:none;border-radius:6px;
-}
-
-footer{text-align:center;padding:20px;background:#020617;}
+body{font-family:'Poppins',sans-serif;background:var(--warm-gray);margin:0}
+.container{max-width:1200px;margin:auto;padding:0 20px}
+.btn{padding:12px 30px;background:linear-gradient(135deg,var(--primary-green),var(--secondary-green));color:#fff;border-radius:50px}
+.card{background:#fff;border-radius:20px;padding:2rem;box-shadow:0 10px 30px rgba(0,0,0,.1)}
+.fade-in{opacity:0;transform:translateY(30px)}
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>GreenScape Lawn Care</h1>
-</header>
-
-<div class="hero">
-<div>
-<h2>Premium Lawn Care Services</h2>
-<p>We make your lawn look perfect year-round</p>
-<a href="#contact" class="btn">Get a Quote</a>
-</div>
+<!-- LOADER -->
+<div id="loader" style="position:fixed;inset:0;background:#f4f1ea;display:flex;align-items:center;justify-content:center;z-index:9999">
+<h2>Loading GreenScape...</h2>
 </div>
 
-<section>
-<h2>Services</h2>
-<div class="services">
-<div class="card"><h3>Lawn Mowing</h3><p>Clean, professional cuts every time.</p></div>
-<div class="card"><h3>Tree Trimming</h3><p>Keep your trees healthy and shaped.</p></div>
-<div class="card"><h3>Mulch Installation</h3><p>Boost your home's curb appeal.</p></div>
+<!-- HERO -->
+<section id="home" class="py-20 text-center">
+<h1 class="text-4xl font-bold">GreenScape Lawn Care</h1>
+<p>Premium lawn care services</p>
+<button onclick="scrollToCalc()" class="btn mt-4">Get Instant Quote</button>
+</section>
+
+<!-- SERVICES -->
+<section class="py-20 bg-green-100 text-center">
+<h2 class="text-3xl font-bold mb-6">Our Services</h2>
+<div class="grid md:grid-cols-3 gap-6 container">
+<div class="card">Lawn Mowing - $35</div>
+<div class="card">Fertilization - $50</div>
+<div class="card">Landscaping - $75/hr</div>
 </div>
 </section>
 
-<section>
-<h2>Our Work</h2>
-<div class="gallery">
-<img src="https://images.unsplash.com/photo-1560743641-3914f2c45636?auto=format&fit=crop&w=800&q=80">
-<img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=800&q=80">
-<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80">
+<!-- CALCULATOR -->
+<section id="calculator" class="py-20">
+<div class="container grid md:grid-cols-2 gap-10">
+<div class="card">
+<h3 class="text-xl mb-4">Estimate Your Cost</h3>
+
+<form id="calculatorForm">
+<input type="number" id="lawnSize" placeholder="Lawn Size" class="border p-2 w-full mb-3">
+
+<select id="serviceType" class="border p-2 w-full mb-3">
+<option value="mowing">Mowing</option>
+<option value="fertilization">Fertilization</option>
+<option value="landscaping">Landscaping</option>
+<option value="aeration">Aeration</option>
+<option value="leaf-removal">Leaf Removal</option>
+</select>
+
+<select id="frequency" class="border p-2 w-full mb-3">
+<option value="one-time">One-time</option>
+<option value="weekly">Weekly</option>
+<option value="bi-weekly">Bi-weekly</option>
+<option value="monthly">Monthly</option>
+</select>
+
+<button class="btn w-full">Calculate</button>
+</form>
+</div>
+
+<div id="calculatorResult" class="card hidden text-center">
+<h4>Estimated Price</h4>
+<div id="price" class="text-3xl font-bold"></div>
+</div>
 </div>
 </section>
 
-<section>
-<h2>Why Choose Us</h2>
-<p>Reliable, affordable, and professional lawn care services. We take pride in making your yard stand out.</p>
-</section>
+<!-- CONTACT -->
+<section id="contact" class="py-20 bg-green-100">
+<div class="container grid md:grid-cols-2 gap-10">
 
-<section id="contact">
-<h2>Request a Quote</h2>
+<div class="card">
+<h3 class="text-xl mb-4">Send Message</h3>
 
-<form action="https://formspree.io/f/mwvagnez" method="POST">
+<form id="contactForm" action="https://formspree.io/f/mwvagnez" method="POST">
+<input name="name" required placeholder="Name" class="border p-2 w-full mb-3">
+<input type="email" name="email" required placeholder="Email" class="border p-2 w-full mb-3">
+<textarea name="message" required placeholder="Message" class="border p-2 w-full mb-3"></textarea>
 
-<input type="text" name="name" placeholder="Your Name" required>
+<input type="hidden" name="_subject" value="New Lead">
+<input type="hidden" name="_captcha" value="false">
 
-<input type="email" name="email" placeholder="Your Email" required>
-
-<input type="tel" name="phone" placeholder="Your Phone Number">
-
-<textarea name="message" placeholder="What do you need done?" required></textarea>
-
-<button type="submit">Send Request</button>
-
+<button class="btn w-full">Send</button>
 </form>
 
-<p style="margin-top:20px;">📞 (919) 000-0000</p>
+</div>
+
+<div class="card">
+<h3>Contact Info</h3>
+<p>(555) 123-4567</p>
+<p>info@greenscape.com</p>
+</div>
+
+</div>
 </section>
 
-<footer>
-<p>© 2026 GreenScape Lawn Care</p>
+<!-- FOOTER -->
+<footer class="text-center p-6 bg-green-800 text-white">
+© GreenScape Lawn Care
 </footer>
+
+<script>
+
+// LOADER
+window.onload=()=>setTimeout(()=>loader.style.display="none",1200)
+
+// SCROLL
+function scrollToCalc(){
+document.getElementById("calculator").scrollIntoView({behavior:"smooth"})
+}
+
+// CALCULATOR FIXED
+document.getElementById("calculatorForm").addEventListener("submit",function(e){
+e.preventDefault()
+
+let size=parseFloat(lawnSize.value)
+if(!size||isNaN(size)){alert("Enter valid size");return}
+
+let service=serviceType.value
+let freq=frequency.value
+
+let base=0
+if(service==="mowing") base=size*0.015
+if(service==="fertilization") base=size*0.02
+if(service==="landscaping") base=size*0.03
+if(service==="aeration") base=size*0.01
+if(service==="leaf-removal") base=size*0.008
+
+let mult=1
+if(freq==="weekly") mult=0.9
+if(freq==="bi-weekly") mult=0.95
+if(freq==="monthly") mult=1.05
+
+let total=base*mult
+
+price.innerText="$"+total.toFixed(2)
+calculatorResult.classList.remove("hidden")
+})
+
+// FORM SUCCESS (does not block Formspree)
+contactForm.addEventListener("submit",()=>{
+setTimeout(()=>alert("Message sent!"),500)
+})
+
+// GSAP
+gsap.registerPlugin(ScrollTrigger)
+gsap.from("h1",{y:-50,opacity:0,duration:1})
+
+</script>
 
 </body>
 </html>
